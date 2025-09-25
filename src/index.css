@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --font-Bricolage: "Bricolage Grotesque";
+  --color-dark-green: #00373e;
+  --color-light-yellow: #f9e6d0;
+}
+
+* {
+  box-sizing: border-box;
+}
