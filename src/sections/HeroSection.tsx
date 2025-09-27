@@ -1,8 +1,64 @@
+import { useGSAP } from "@gsap/react";
 import Button from "../components/Button";
+import { SplitText } from "gsap/all";
+import gsap from "gsap";
 
 export default function HeroSection() {
+  useGSAP(() => {
+    const titleSplit = SplitText.create(".hero-title", { type: "chars" });
+
+    const subTitleSplit = SplitText.create(".hero-subTitle", {
+      type: "words, lines",
+    });
+
+    const timeLine = gsap.timeline({
+      delay: 0.6,
+    });
+
+    timeLine
+      .to(".hero-container", {
+        duration: 0.6,
+        clipPath: " polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        ease: "power1.inOut",
+      })
+      .from(
+        titleSplit.chars,
+        {
+          duration: 0.35,
+          yPercent: 200,
+          stagger: 0.02,
+          ease: "power2.out",
+        },
+        "-=0.1"
+      )
+      .from(
+        subTitleSplit.words,
+        {
+          duration: 0.35,
+          left: 100,
+          opacity: 0,
+          stagger: 0.02,
+          ease: "power1.inOut",
+        },
+        "-=0.35"
+      )
+      .to(".hero-container button", {
+        duration: 0.25,
+        scale: 1.1,
+        ease: "power1.Out",
+      })
+      .to(".hero-container button", {
+        duration: 0.25,
+        scale: 1,
+        ease: "power1.Out",
+      });
+  });
+
   return (
-    <section className="xl:px-22.5 lg:px-10 px-5 mb-18 md:mb-25 text-center">
+    <section
+      className="hero-container xl:px-22.5 lg:px-10 px-5 mb-18 md:mb-25 text-center overflow-hidden"
+      style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
+    >
       <div className=" bg-light-yellow relative rounded-[50px] lg:rounded-[70px]  w-full md:aspect-video py-10 px-5 overflow-hidden flex flex-col items-center justify-center">
         <img
           src="/herosection1.svg"
@@ -13,16 +69,16 @@ export default function HeroSection() {
           className=" absolute right-0 bottom-0  w-[30%] hidden md:block"
         />
 
-        <p className=" text-[clamp(36px,5.5vw,70px)] font-bold  leading-tight mb-3.75">
+        <p className="hero-title text-[clamp(36px,5.5vw,70px)] font-bold  leading-tight mb-3.75 overflow-hidden">
           Support for Your
           <br /> Mental Well-being
         </p>
-        <p className=" text-[clamp(18px,2.5vw,24px)] mb-11.25 leading-7.25">
+        <p className="hero-subTitle text-[clamp(18px,2.5vw,24px)] mb-11.25 leading-7.25 overflow-hidden">
           Connect with licensed therapists, counselors,
           <br className=" hidden md:block" /> and wellness coaches to support
           your journey.
         </p>
-        <Button className="bg-dark-green">Get Started</Button>
+        <Button className="bg-dark-green scale-0">Get Started</Button>
       </div>
     </section>
   );

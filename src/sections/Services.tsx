@@ -1,26 +1,121 @@
+import { useGSAP } from "@gsap/react";
 import Button from "../components/Button";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
 
 export default function Services() {
+  useGSAP(() => {
+    const titleSplit = SplitText.create(
+      ".services-Section-Container .section-title",
+      {
+        type: "chars",
+      }
+    );
+
+    const sectionDescription = SplitText.create(
+      ".services-Section-Container .section-description",
+      {
+        type: "words, lines",
+      }
+    );
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        start: "top 80%",
+        end: "bottom 110%",
+        trigger: ".services-Section-Container",
+        markers: true,
+        scrub: true,
+      },
+    });
+
+    tl.from(".services-Section-Container .section-eyebrow", {
+      xPercent: -200,
+    })
+      .from(
+        titleSplit.chars,
+        {
+          duration: 0.35,
+          yPercent: 300,
+          stagger: 0.01,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      )
+
+      .from(
+        sectionDescription.words,
+        {
+          duration: 0.35,
+          yPercent: 100,
+          opacity: 0,
+          stagger: 0.02,
+          ease: "power1.inOut",
+        },
+        "-=0.2"
+      )
+      .from(
+        ".left-card",
+        {
+          duration: 0.5,
+          xPercent: -100,
+          opacity: 0,
+          ease: "power1.inOut",
+        },
+        "-=0.4"
+      )
+      .from(
+        ".hearts-img",
+        {
+          duration: 0.3,
+          opacity: 0,
+          scale: 0,
+          yPercent: 100,
+        },
+        "-=0.15"
+      )
+      .from(
+        ".right-card",
+        {
+          duration: 0.5,
+          xPercent: 100,
+          opacity: 0,
+          ease: "power1.inOut",
+        },
+        "-=0.65"
+      )
+      .to(".bottom-card", {
+        duration: 0.6,
+        clipPath: " polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        ease: "power1.inOut",
+      });
+  });
+
   return (
     <>
-      <section className="xl:px-22.5 lg:px-10 px-5 mb-20 md:mb-37.5 ">
-        <div className=" space-y-3 md:space-y-5 text-center mb-12 md:mb-20">
-          <p className=" text-sm font-medium">SERVICES</p>
-          <p className="font-bold text-[clamp(34px,5vw,52px)] leading-tight">
+      <section className="services-Section-Container xl:px-22.5 lg:px-10 px-5 mb-20 md:mb-37.5 ">
+        <div className=" space-y-3 md:space-y-5 text-center mb-12 md:mb-20 overflow-hidden">
+          <div className=" w-fit mx-auto  overflow-hidden ">
+            <p className="section-eyebrow text-sm font-medium overflow-hidden">
+              SERVICES
+            </p>
+          </div>
+
+          <p className="section-title font-bold text-[clamp(34px,5vw,52px)] leading-tight overflow-hidden">
             Your Path to
             <br /> Well-being
           </p>
-          <p className=" text-[clamp(16px,2.3vw,22px)]">
+          <p className="section-description text-[clamp(16px,2.3vw,22px)]">
             Discover expert guidance for a healthier
             <br /> mind and balanced life.
           </p>
         </div>
 
         <div className=" flex items-center flex-wrap gap-10">
-          <div className=" relative bg-[#F9E6D0]  flex-1 min-w-[250px] md:h-[455px] rounded-[50px] lg:rounded-[60px] px-8 md:px-15 py-11.75 md:pt-[75px] space-y-6 md:space-y-[35px]">
+          <div className="left-card overflow-hidden relative bg-[#F9E6D0]  flex-1 min-w-[250px] md:h-[455px] rounded-[50px] lg:rounded-[60px] px-8 md:px-15 py-11.75 md:pt-[75px] space-y-6 md:space-y-[35px]">
             <img
               src="/hearts.svg"
-              className=" absolute top-[59px] right-[52.8px] hidden lg:block"
+              className="hearts-img absolute top-[59px] right-[52.8px] hidden lg:block"
             />
             <p className=" font-semibold  text-[clamp(28px,4vw,40px)] leading-tight">
               Mindfulness & <br />
@@ -36,7 +131,7 @@ export default function Services() {
             </Button>
           </div>
 
-          <div className=" bg-white flex-1 min-w-[250px] md:h-[455px] rounded-[50px] lg:rounded-[60px] px-8 md:px-15 py-11.75 md:pt-[75px] space-y-6 md:space-y-[35px]">
+          <div className="right-card bg-white flex-1 min-w-[250px] md:h-[455px] rounded-[50px] lg:rounded-[60px] px-8 md:px-15 py-11.75 md:pt-[75px] space-y-6 md:space-y-[35px]">
             <p className=" font-semibold text-[clamp(28px,4vw,40px)] leading-tight">
               One-on-One
               <br /> Therapy
@@ -52,7 +147,10 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="relative bg-white w-full md:h-[455px] overflow-hidden rounded-[50px] lg:rounded-[60px] px-8 md:px-15 py-11.75 md:pt-[75px] space-y-6 md:space-y-[35px] mt-10">
+        <div
+          className="bottom-card relative bg-white w-full md:h-[455px] overflow-hidden rounded-[50px] lg:rounded-[60px] px-8 md:px-15 py-11.75 md:pt-[75px] space-y-6 md:space-y-[35px] mt-10"
+          style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
+        >
           <img
             src="/mirror.svg"
             className=" absolute right-0 bottom-0 !m-0 w-[38%] hidden md:block "
