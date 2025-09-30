@@ -8,8 +8,13 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Button from "../components/Button";
+import { useMediaQuery } from "react-responsive";
 
 export default function ContactUs() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(".contactUs-section .section-title", {
       type: "chars",
@@ -26,6 +31,7 @@ export default function ContactUs() {
       ".contactUs-section .section-description",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -34,7 +40,7 @@ export default function ContactUs() {
         start: "top 80%",
         end: "110% 100%",
         trigger: ".contactUs-section",
-        scrub: 2.5,
+        scrub: isMobile ? false : 2.5,
       },
     });
 

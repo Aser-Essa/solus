@@ -2,8 +2,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import Question from "../components/Question";
+import { useMediaQuery } from "react-responsive";
 
 export default function Faqs() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(".faqs-section .section-title", {
       type: "chars",
@@ -13,6 +18,7 @@ export default function Faqs() {
       ".faqs-section .section-description",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -21,7 +27,7 @@ export default function Faqs() {
         start: "top 75%",
         end: "bottom bottom",
         trigger: ".faqs-section",
-        scrub: 2,
+        scrub: isMobile ? false : 2,
       },
     });
 

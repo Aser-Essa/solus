@@ -9,3 +9,13 @@
 * {
   box-sizing: border-box;
 }
+
+.HowItWorks-Section .line {
+  text-align: start !important;
+}
+
+@media (max-width: 768px) {
+  .HowItWorks-Section .line {
+    text-align: center !important;
+  }
+}

@@ -2,8 +2,13 @@ import { useGSAP } from "@gsap/react";
 import Button from "../components/Button";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 export default function Services() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(
       ".services-Section-Container .section-title",
@@ -16,6 +21,7 @@ export default function Services() {
       ".services-Section-Container .section-description",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -30,6 +36,7 @@ export default function Services() {
       ".services-Section-Container .card-desc",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -38,7 +45,7 @@ export default function Services() {
         start: "0% 80%",
         end: "bottom 65%",
         trigger: ".services-Section-Container",
-        scrub: 3,
+        scrub: isMobile ? false : 3,
       },
     });
 

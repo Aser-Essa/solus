@@ -2,8 +2,13 @@ import { useGSAP } from "@gsap/react";
 import Button from "../components/Button";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 export default function Explore() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(".explore-section .section-title", {
       type: "chars",
@@ -13,6 +18,7 @@ export default function Explore() {
       ".explore-section .section-description",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -21,7 +27,9 @@ export default function Explore() {
         start: "top 60%",
         end: "bottom bottom",
         trigger: ".explore-section",
-        toggleActions: "play play play reverse",
+        toggleActions: isMobile
+          ? "play play play play"
+          : "play play play reverse",
       },
     });
 

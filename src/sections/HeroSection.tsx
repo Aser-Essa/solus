@@ -2,13 +2,19 @@ import { useGSAP } from "@gsap/react";
 import Button from "../components/Button";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
 export default function HeroSection() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(".hero-title", { type: "chars" });
 
     const subTitleSplit = SplitText.create(".hero-subTitle", {
       type: "words, lines",
+      linesClass: "line",
     });
 
     const timeLine = gsap.timeline({
@@ -17,7 +23,9 @@ export default function HeroSection() {
         end: "86% 20%",
         trigger: ".hero-container",
 
-        toggleActions: "play reverse play reverse",
+        toggleActions: isMobile
+          ? "play play play play"
+          : "play reverse play reverse",
       },
       delay: 0.6,
     });

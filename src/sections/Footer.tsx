@@ -2,8 +2,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import Button from "../components/Button";
+import { useMediaQuery } from "react-responsive";
 
 export default function Footer() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const linksTitle = SplitText.create("footer .links-title  ", {
       type: "chars",
@@ -18,7 +23,9 @@ export default function Footer() {
         start: "top 80%",
         end: "bottom 65%",
         trigger: "footer",
-        toggleActions: "play play play reverse",
+        toggleActions: isMobile
+          ? "play play play play"
+          : "play play play reverse",
       },
     });
 

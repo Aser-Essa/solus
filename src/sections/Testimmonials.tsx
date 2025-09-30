@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useEffect, useRef, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
+import { useMediaQuery } from "react-responsive";
 
 type Testimonial = {
   text: string;
@@ -68,6 +69,10 @@ export default function Testimmonials() {
     return () => window.removeEventListener("resize", updateWidth);
   });
 
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(
       ".testimmonials-section .section-title",
@@ -80,6 +85,7 @@ export default function Testimmonials() {
       ".testimmonials-section .section-description",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -88,7 +94,9 @@ export default function Testimmonials() {
         start: "top 80%",
         end: "bottom 70%",
         trigger: ".testimmonials-section",
-        toggleActions: "play play play reverse",
+        toggleActions: isMobile
+          ? "play play play play"
+          : "play play play reverse",
       },
     });
 

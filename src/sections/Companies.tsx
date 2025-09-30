@@ -1,8 +1,13 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 export default function Companies() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const splitTitle = SplitText.create(".companies-section .section-title", {
       type: "chars",
@@ -13,7 +18,9 @@ export default function Companies() {
         start: "top 90%",
         end: "bottom 65%",
         trigger: ".companies-section",
-        toggleActions: "play play play reverse",
+        toggleActions: isMobile
+          ? "play play play play"
+          : "play play play reverse",
       },
     });
 

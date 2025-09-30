@@ -2,8 +2,13 @@ import { useGSAP } from "@gsap/react";
 import Button from "../components/Button";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 export default function HowItWorks() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(".HowItWorks-Section .section-title", {
       type: "chars",
@@ -13,6 +18,7 @@ export default function HowItWorks() {
       ".HowItWorks-Section .section-description",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -21,7 +27,9 @@ export default function HowItWorks() {
         start: "10% 60%",
         end: "86% 70%",
         trigger: ".HowItWorks-Section",
-        toggleActions: "play play play reverse",
+        toggleActions: isMobile
+          ? "play play play play"
+          : "play play play reverse",
       },
     });
 
@@ -73,8 +81,8 @@ export default function HowItWorks() {
   return (
     <>
       <section className="HowItWorks-Section xl:px-22.5 lg:px-10 px-5 mb-22 md:mb-37.5 flex flex-col-reverse md:flex-row gap-12 items-center justify-between  overflow-hidden ">
-        <div className=" md:max-w-[470px] space-y-5 md:space-y-9 ">
-          <div className="overflow-hidden space-y-5 md:space-y-9">
+        <div className="  text-center md:text-start md:min-w-[350px] md:max-w-[470px] space-y-5 md:space-y-9 ">
+          <div className="w-full overflow-hidden space-y-5 md:space-y-9">
             <p className="section-eyebrow text-sm font-medium overflow-hidden">
               HOW IT WORKS
             </p>
@@ -82,7 +90,7 @@ export default function HowItWorks() {
               We Help You <br /> Prioritize Your
               <br /> Mental Health
             </p>
-            <p className="section-description text-[clamp(16px,2.3vw,22px)]">
+            <p className="section-description text-[clamp(16px,2.3vw,22px)]  ">
               Browse therapists, book a session, and
               <br className="hidden lg:block" /> start your healing journey with
               trusted

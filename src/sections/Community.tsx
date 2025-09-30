@@ -2,8 +2,13 @@ import { useGSAP } from "@gsap/react";
 import Button from "../components/Button";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
 export default function Community() {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(".community-section .section-title", {
       type: "chars",
@@ -13,6 +18,7 @@ export default function Community() {
       ".community-section .section-description",
       {
         type: "words, lines",
+        linesClass: "line",
       }
     );
 
@@ -21,7 +27,9 @@ export default function Community() {
         start: "top 55%",
         end: "bottom bottom",
         trigger: ".community-section",
-        toggleActions: "play play play reverse",
+        toggleActions: isMobile
+          ? "play play play play"
+          : "play play play reverse",
       },
     });
 
