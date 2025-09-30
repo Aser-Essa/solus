@@ -18,4 +18,9 @@
   .HowItWorks-Section .line {
     text-align: center !important;
   }
+
+  .line {
+    width: fit-content !important;
+    display: inline !important;
+  }
 }
