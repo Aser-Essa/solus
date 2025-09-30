@@ -12,6 +12,13 @@ export default function HeroSection() {
     });
 
     const timeLine = gsap.timeline({
+      scrollTrigger: {
+        start: "top 20%",
+        end: "86% 20%",
+        trigger: ".hero-container",
+
+        toggleActions: "play reverse play reverse",
+      },
       delay: 0.6,
     });
 
@@ -43,14 +50,9 @@ export default function HeroSection() {
         "-=0.35"
       )
       .to(".hero-container button", {
-        duration: 0.25,
-        scale: 1.1,
-        ease: "power1.Out",
-      })
-      .to(".hero-container button", {
-        duration: 0.25,
+        duration: 0.4,
         scale: 1,
-        ease: "power1.Out",
+        ease: "back.out(1.5)",
       });
   });
 

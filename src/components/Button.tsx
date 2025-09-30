@@ -10,7 +10,7 @@ export default function Button({ children, className }: ButtonProps) {
     <>
       <button
         className={cn(
-          "  text-white px-11 py-3.75 rounded-full font-semibold text-[clamp(14px,2vw,20px)] ",
+          "  text-white px-11 py-3.75 rounded-full font-semibold text-[clamp(14px,2vw,20px)] cursor-pointer",
           className
         )}
       >

@@ -19,13 +19,26 @@ export default function Services() {
       }
     );
 
+    const cardTitle = SplitText.create(
+      ".services-Section-Container .card-title",
+      {
+        type: "chars",
+      }
+    );
+
+    const cardDescription = SplitText.create(
+      ".services-Section-Container .card-desc",
+      {
+        type: "words, lines",
+      }
+    );
+
     const tl = gsap.timeline({
       scrollTrigger: {
-        start: "top 80%",
-        end: "bottom 110%",
+        start: "0% 80%",
+        end: "bottom 65%",
         trigger: ".services-Section-Container",
-        markers: true,
-        scrub: true,
+        scrub: 3,
       },
     });
 
@@ -84,11 +97,49 @@ export default function Services() {
         },
         "-=0.65"
       )
-      .to(".bottom-card", {
-        duration: 0.6,
-        clipPath: " polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        ease: "power1.inOut",
-      });
+      .from(".bottom-card", {
+        opacity: 0,
+      })
+      .to(
+        ".bottom-card",
+        {
+          duration: 0.6,
+          delay: 0.4,
+          clipPath: " polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          ease: "power1.inOut",
+        },
+        "<"
+      )
+      .from(
+        cardTitle.chars,
+        {
+          duration: 0.35,
+          yPercent: 100,
+          stagger: 0.02,
+          ease: "power1.inOut",
+        },
+        "-=0.2"
+      )
+      .from(
+        cardDescription.words,
+        {
+          duration: 0.35,
+          left: 100,
+          opacity: 0,
+          stagger: 0.02,
+          ease: "power1.inOut",
+        },
+        "-=0.2"
+      )
+      .to(
+        ".services-Section-Container button",
+        {
+          duration: 0.4,
+          scale: 1,
+          ease: "back.out(1.5)",
+        },
+        "-=0.2"
+      );
   });
 
   return (
@@ -155,10 +206,10 @@ export default function Services() {
             src="/mirror.svg"
             className=" absolute right-0 bottom-0 !m-0 w-[38%] hidden md:block "
           />
-          <p className=" font-semibold text-[clamp(28px,4vw,40px)] leading-tight">
+          <p className="card-title font-semibold text-[clamp(28px,4vw,40px)] leading-tight overflow-hidden">
             Wellness Coaching
           </p>
-          <p className=" text-[clamp(18px,3vw,20px)]">
+          <p className="card-desc text-[clamp(18px,3vw,20px)]  overflow-hidden">
             Personalized guidance to help you build healthier habits,
             <br /> manage stress, and achieve balance in all areas of your life.
             <br />
@@ -166,7 +217,9 @@ export default function Services() {
             Our wellness coaches support you in creating sustainable
             <br /> routines for mental, emotional, and physical well-being.
           </p>
-          <Button className=" bg-dark-green  h-13.5 py-0">Learn more</Button>
+          <Button className=" bg-dark-green  h-13.5 py-0 scale-0">
+            Learn more
+          </Button>
         </div>
       </section>
     </>

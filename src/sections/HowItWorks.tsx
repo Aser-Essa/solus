@@ -18,10 +18,10 @@ export default function HowItWorks() {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        start: "top 80%",
-        end: "bottom 70%",
+        start: "10% 60%",
+        end: "86% 70%",
         trigger: ".HowItWorks-Section",
-        scrub: true,
+        toggleActions: "play play play reverse",
       },
     });
 

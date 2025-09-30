@@ -16,7 +16,7 @@ export default function Question({ question, answer }: QuestionProps) {
 
   return (
     <>
-      <div className=" w-full min-h-[92px] bg-white rounded-[30px] flex items-center justify-between py-5 md:py-7.25 px-6 md:pl-12.5 md:pr-10 gap-10 ">
+      <div className="question w-full min-h-[92px] bg-white rounded-[30px] flex items-center justify-between py-5 md:py-7.25 px-6 md:pl-12.5 md:pr-10 gap-10  ">
         <div>
           <p
             className={cn(
