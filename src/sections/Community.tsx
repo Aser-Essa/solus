@@ -97,7 +97,7 @@ export default function Community() {
           </p>
         </div>
 
-        <p className="section-title  font-semibold text-[clamp(34px,5vw,52px)] overflow-hidden">
+        <p className="section-title  font-semibold text-[clamp(32px,5vw,52px)] leading-tight overflow-hidden">
           You’re Not Alone
           <br /> on This Journey
         </p>

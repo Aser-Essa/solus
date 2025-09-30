@@ -71,11 +71,11 @@ export default function HeroSection() {
           className=" absolute right-0 bottom-0  w-[30%] hidden md:block"
         />
 
-        <p className="hero-title text-[clamp(36px,5.5vw,70px)] font-bold  leading-tight mb-3.75 overflow-hidden">
+        <p className="hero-title text-[clamp(32px,5.5vw,70px)] font-bold  leading-tight mb-3.75 overflow-hidden">
           Support for Your
           <br /> Mental Well-being
         </p>
-        <p className="hero-subTitle text-[clamp(18px,2.5vw,24px)] mb-11.25 leading-7.25 overflow-hidden">
+        <p className="hero-subTitle text-[clamp(18px,2.5vw,24px)] mb-11.25 leading-7.25 overflow-hidden ">
           Connect with licensed therapists, counselors,
           <br className=" hidden md:block" /> and wellness coaches to support
           your journey.
