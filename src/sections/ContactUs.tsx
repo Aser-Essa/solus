@@ -90,28 +90,48 @@ export default function ContactUs() {
         xPercent: 100,
         stagger: 0.2,
         opacity: 0,
-      })
-      .to(
-        ".contact-form",
+      });
+
+    if (isMobile) {
+      tl.from(
+        ".icon",
         {
-          duration: 0.8,
-          opacity: 1,
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-          ease: "power1.inOut",
+          duration: 0.3,
+          scale: 0,
+          stagger: 0.15,
+          ease: "back.out(2)",
         },
-        "<"
-      )
+        "-=.2"
+      ).from(".respond-time", {
+        yPercent: 200,
+        opacity: 0,
+      });
+    }
+
+    tl.to(
+      ".contact-form",
+      {
+        duration: 0.8,
+        opacity: 1,
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        ease: "power1.inOut",
+      },
+      "<"
+    )
       .from(".input-row", {
         opacity: 0,
         yPercent: 100,
         stagger: 0.4,
       })
+
       .to(".contact-form button", {
         duration: 0.8,
         scale: 1,
         ease: "back.out(1)",
-      })
-      .from(
+      });
+
+    if (!isMobile) {
+      tl.from(
         ".icon",
         {
           duration: 0.6,
@@ -120,11 +140,11 @@ export default function ContactUs() {
           ease: "back.out(2)",
         },
         "-=2"
-      )
-      .from(".respond-time", {
+      ).from(".respond-time", {
         yPercent: 200,
         opacity: 0,
       });
+    }
   });
 
   return (
