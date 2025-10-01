@@ -13,6 +13,12 @@ export default function MobileNavList() {
   }
 
   useEffect(() => {
+    gsap.set(".mobile-nav-list-container", { width: 0 });
+    gsap.set(".mobile-nav-list", { opacity: 0 });
+    gsap.set(".overlay", { opacity: 0, zIndex: -1, display: "none" });
+  }, []);
+
+  useEffect(() => {
     if (isOpen) {
       gsap.to(".mobile-nav-list-container", {
         duration: 0.3,
