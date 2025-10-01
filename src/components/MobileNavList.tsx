@@ -72,7 +72,7 @@ export default function MobileNavList() {
 
           <div
             className={cn(
-              "mobile-nav-list-container overflow-hidden text-lg font-medium  fixed z-[10000] top-0 left-0   bg-[#F7F6F4] rounded-r-[20px] w-screen h-screen"
+              "mobile-nav-list-container overflow-hidden text-lg font-medium  fixed z-[10000] top-0 left-0   bg-[#F7F6F4] rounded-r-[20px] "
             )}
           >
             <div className="mobile-nav-list p-8 flex flex-col gap-8">
