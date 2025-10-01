@@ -83,7 +83,10 @@ export default function Faqs() {
 
   return (
     <>
-      <section className="faqs-section xl:mx-22.5 md:mx-10 mx-5 mb-20 md:mb-37.5 min-h-243.75 flex flex-wrap lg:flex-nowrap items-start md:items-end justify-between  md:gap-12.5 ">
+      <section
+        id="xxx"
+        className="faqs-section xl:mx-22.5 md:mx-10 mx-5 mb-20 md:mb-37.5 min-h-243.75 flex flex-wrap lg:flex-nowrap items-start md:items-end justify-between  md:gap-12.5 "
+      >
         <div className=" space-y-5 md:space-y-10 flex-1">
           <div className=" overflow-hidden">
             <p className=" section-eyebrow text-sm font-medium  overflow-hidden">

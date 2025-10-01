@@ -149,7 +149,10 @@ export default function ContactUs() {
 
   return (
     <>
-      <section className="contactUs-section xl:xl:px-22.5 lg:px-10 px-5 mb-20 md:mb-30 ">
+      <section
+        id="contactUs"
+        className="contactUs-section xl:xl:px-22.5 lg:px-10 px-5 mb-20 md:mb-30 "
+      >
         <div className="space-y-5 text-center mb-20">
           <div className="overflow-hidden w-fit mx-auto">
             <p className="section-eyebrow text-sm font-medium overflow-hidden">

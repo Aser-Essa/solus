@@ -151,7 +151,10 @@ export default function Services() {
 
   return (
     <>
-      <section className="services-Section-Container xl:px-22.5 lg:px-10 px-5 mb-20 md:mb-37.5 ">
+      <section
+        id="services"
+        className="services-Section-Container xl:px-22.5 lg:px-10 px-5 mb-20 md:mb-37.5 "
+      >
         <div className=" space-y-3 md:space-y-5 text-center mb-12 md:mb-20 overflow-hidden">
           <div className=" w-fit mx-auto  overflow-hidden ">
             <p className="section-eyebrow text-sm font-medium overflow-hidden">

@@ -91,6 +91,7 @@ export default function Community() {
 
   return (
     <section
+      id="therapists"
       className="community-section xl:mx-22.5 md:mx-10 mx-5 mb-22 md:mb-37.5 overflow-hidden"
       style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
     >

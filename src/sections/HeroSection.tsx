@@ -19,10 +19,9 @@ export default function HeroSection() {
 
     const timeLine = gsap.timeline({
       scrollTrigger: {
-        start: "top 20%",
+        start: "top 26%",
         end: "86% 20%",
         trigger: ".hero-container",
-
         toggleActions: isMobile
           ? "play play play play"
           : "play reverse play reverse",
@@ -66,6 +65,7 @@ export default function HeroSection() {
 
   return (
     <section
+      id="heroSection"
       className="hero-container xl:px-22.5 lg:px-10 px-5 mb-18 md:mb-25 text-center overflow-hidden"
       style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
     >

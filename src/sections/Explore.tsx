@@ -79,7 +79,10 @@ export default function Explore() {
 
   return (
     <>
-      <section className="explore-section xl:mx-22.5 md:mx-10 mx-5 mb-22 md:mb-35 ">
+      <section
+        id="resources"
+        className="explore-section xl:mx-22.5 md:mx-10 mx-5 mb-22 md:mb-35 "
+      >
         <div className=" space-y-5 text-center mb-12 md:mb-20 overflow-hidden">
           <div className=" w-fit mx-auto  overflow-hidden ">
             <p className="section-eyebrow text-sm font-medium overflow-hidden">

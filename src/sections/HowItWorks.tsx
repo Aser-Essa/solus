@@ -80,7 +80,10 @@ export default function HowItWorks() {
 
   return (
     <>
-      <section className="HowItWorks-Section xl:px-22.5 lg:px-10 px-5 mb-22 md:mb-37.5 flex flex-col-reverse md:flex-row gap-12 items-center justify-between  overflow-hidden ">
+      <section
+        id="about"
+        className="HowItWorks-Section xl:px-22.5 lg:px-10 px-5 mb-22 md:mb-37.5 flex flex-col-reverse md:flex-row gap-12 items-center justify-between  overflow-hidden "
+      >
         <div className="  text-center md:text-start md:min-w-[350px] md:max-w-[470px] space-y-5 md:space-y-9 ">
           <div className="w-full overflow-hidden space-y-5 md:space-y-9">
             <p className="section-eyebrow text-sm font-medium overflow-hidden">
