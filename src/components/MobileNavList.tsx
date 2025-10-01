@@ -65,7 +65,7 @@ export default function MobileNavList() {
       />
 
       {createPortal(
-        <div className=" block md:hidden">
+        <div className=" block md:hidden max-w-screen">
           <div
             className={cn(
               " overlay fixed  top-0 opacity-0   w-screen h-screen"
