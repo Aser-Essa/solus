@@ -67,7 +67,9 @@ export default function MobileNavList() {
       {createPortal(
         <div className=" block md:hidden">
           <div
-            className={cn(" overlay fixed  top-0   w-screen h-screen")}
+            className={cn(
+              " overlay fixed  top-0 opacity-0   w-screen h-screen"
+            )}
             onClick={toggleMenu}
           ></div>
 
@@ -76,7 +78,7 @@ export default function MobileNavList() {
               "mobile-nav-list-container overflow-hidden text-lg w-0 font-medium  fixed z-[10000] top-0 left-0  bg-[#F7F6F4] rounded-r-[20px] h-dvh"
             )}
           >
-            <div className="mobile-nav-list p-8 flex flex-col gap-8">
+            <div className="mobile-nav-list p-8 flex flex-col gap-8 opacity-0">
               <div className=" flex items-center justify-between">
                 <p
                   className="logo cursor-pointer relative font-Bricolage  text-[40px] font-bold"
