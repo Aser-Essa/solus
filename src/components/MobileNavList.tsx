@@ -75,7 +75,7 @@ export default function MobileNavList() {
 
           <div
             className={cn(
-              "mobile-nav-list-container overflow-hidden text-lg w-0 font-medium  fixed z-[10000] top-0 left-0  bg-[#F7F6F4] rounded-r-[20px] h-dvh"
+              "mobile-nav-list-container overflow-hidden text-lg w-0 max-w-[85%] font-medium  fixed z-[10000] top-0 left-0  bg-[#F7F6F4] rounded-r-[20px] h-dvh"
             )}
           >
             <div className="mobile-nav-list p-8 flex flex-col gap-8 opacity-0">

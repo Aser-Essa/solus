@@ -96,7 +96,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed left-0 max-w-screen w-full backdrop-blur-[10px] z-50 bg-[#f7f6f471] h-[91px]  overflow-hidden
+      className="fixed left-0 max-w-screen w-screen backdrop-blur-[10px] z-50 bg-[#f7f6f471] h-[91px]  overflow-hidden
       xl:px-22.5 lg:px-10 px-5 flex items-center justify-between gap-5"
     >
       <MobileNavList />
