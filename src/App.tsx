@@ -28,10 +28,13 @@ function App() {
 
   return (
     <>
-      <div className="pb-14 md:pb-17.5">
+      <div className="pb-14 md:pb-17.5 ">
         <Header />
         <div id="smooth-wrapper">
-          <div id="smooth-content" className="pt-[135px] md:pt-[161px]">
+          <div
+            id="smooth-content"
+            className="pt-[135px] md:pt-[161px] max-w-screen"
+          >
             <HeroSection />
             <HowItWorks />
             <Services />
