@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <div className="pb-14 md:pb-17.5 ">
+      <div className=" max-w-screen overflow-x-hidden pb-14 md:pb-17.5 ">
         <Header />
         <div id="smooth-wrapper">
           <div
