@@ -13,7 +13,7 @@ export default function MobileNavList() {
   }
 
   useEffect(() => {
-    gsap.set(".mobile-nav-list-container", { width: 0 });
+    gsap.set(".mobile-nav-list-container", { width: 0, opacity: 0 });
     gsap.set(".mobile-nav-list", { opacity: 0 });
     gsap.set(".overlay", { opacity: 0, zIndex: -1, display: "none" });
   }, []);
@@ -23,6 +23,7 @@ export default function MobileNavList() {
       gsap.to(".mobile-nav-list-container", {
         duration: 0.3,
         width: "85%",
+        opacity: 1,
         ease: "power1.out",
       });
 
