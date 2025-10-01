@@ -1,10 +1,9 @@
+import gsap from "gsap";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { FaBars } from "react-icons/fa6";
-import { cn, scroll } from "../lib/utils";
-import gsap from "gsap";
-import Logo from "./Logo";
 import { IoCloseOutline } from "react-icons/io5";
+import { cn, scroll } from "../lib/utils";
 
 export default function MobileNavList() {
   const [isOpen, setIsopen] = useState(false);
