@@ -28,12 +28,12 @@ function App() {
 
   return (
     <>
-      <div className=" max-w-screen overflow-x-hidden pb-14 md:pb-17.5 ">
+      <div className="max-w-screen overflow-x-hidden ">
         <Header />
         <div id="smooth-wrapper">
           <div
             id="smooth-content"
-            className="pt-[135px] md:pt-[161px] max-w-screen"
+            className="pt-[135px] md:pt-[161px] pb-14 md:pb-17.5  max-w-screen"
           >
             <HeroSection />
             <HowItWorks />
